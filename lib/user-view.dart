@@ -6,26 +6,56 @@ import 'dart:html';
 import 'dart:convert';
 import 'user-session.dart' as globals;
 
-
 var usersUrl = "http://localhost:8080/admin/user";
+var deleteUsersUrl = "http://localhost:8080/prototype/delete-user/";
+var loadUsersUrl = "http://localhost:8080/prototype/users/";
 
 @CustomTag('user-view')
-class UserView extends PolymerElement{
+class UserView extends PolymerElement {
   UserView.created() : super.created();
- 
+
+  @observable String programName = "";
   void getUsers(Event e) {
     var basic = "Basic " + globals.token;
-    Map header =  {'Authorization': basic};
-    
-    HttpRequest.request(usersUrl, requestHeaders : header).then((HttpRequest req) {
-        drawUsers(req.response);
+    Map header = {'Authorization': basic};
 
+    HttpRequest
+        .request(usersUrl, requestHeaders: header)
+        .then((HttpRequest req) {
+      drawUsers(req.response);
     });
   }
-  void drawUsers(response){
+
+
+  void uploadUsers(Event e) {
+    var basic = "Basic " + globals.token;
+    Map header = {'Authorization': basic};
+    HttpRequest
+        .request(loadUsersUrl + programName, requestHeaders: header)
+        .then((HttpRequest req) {
+      print(req.response);
+      //Map data = JSON.decode(req.response);
+
+    }).catchError((error) {
+      print(error);
+    });
+  }
+  void deleteUsersFromCsv(Event e) {
+    var basic = "Basic " + globals.token;
+    Map header = {'Authorization': basic};
+    HttpRequest
+        .request(deleteUsersUrl + programName, requestHeaders: header)
+        .then((HttpRequest req) {
+
+      //Map data = JSON.decode(req.response);
+      print(req.response);
+    }).catchError((error) {
+      print(error);
+    });
+  }
+  void drawUsers(response) {
     Map parsedMap = JSON.decode(response);
     print("Listando" + parsedMap["data"].length.toString() + "usuarios");
-     parsedMap["data"].forEach((key) => print(key));
-
+    parsedMap["data"].forEach((key) => print(key));
   }
 }
