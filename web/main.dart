@@ -20,19 +20,22 @@ ButtonElement welcomeAll;
 ButtonElement company;
 ButtonElement reporting;
 ButtonElement dataMining;
+
+var back = "http://localhost:8080";
 var token = "";
-var authUrl = "http://localhost:8080/auth";
-var usersUrl = "http://localhost:8080/admin/user";
-var missionUrl = "http://localhost:8080/prototype/mission/";
-var mailUrl = "http://localhost:8080/prototype/mail/";
-var deleteUsersUrl = "http://localhost:8080/prototype/delete-user/";
-var loadUsersUrl = "http://localhost:8080/prototype/users/";
-var clonePrototypeUrl = "http://localhost:8080/admin/clone-prototype/";
-var inviteUsersUrl = "http://localhost:8080/admin/invite-all";
-var welcomeAllUrl = "http://localhost:8080/admin/welcome-all";
-var companyUrl = "http://localhost:8080/prototype/company/";
-var reportingUrl = "http://localhost:8080/reporting/";
-var dataminingUrl = "http://localhost:8080/data-mining/";
+
+var authUrl = back + "/auth";
+var usersUrl = back + "/admin/user";
+var missionUrl = back + "/prototype/mission/";
+var mailUrl = back + "/prototype/mail/";
+var deleteUsersUrl = back + "/prototype/delete-user/";
+var loadUsersUrl = back + "/prototype/users/";
+var clonePrototypeUrl = back + "/admin/clone-prototype/";
+var inviteUsersUrl = back + "/admin/invite-all";
+var welcomeAllUrl = back + "/admin/welcome-all";
+var companyUrl = back + "/prototype/company/";
+var reportingUrl = back + "/reporting/";
+var dataminingUrl = back + "/data-mining/";
 String client;
 String password;
 
@@ -325,7 +328,7 @@ void dataMiningEvent(Event e){
   Map header = {'Authorization': basic};
   draw("Generando Datamining");
   HttpRequest
-      .request(dataminingUrl + querySelector("#dataminingId").value,
+      .request(dataminingUrl,
           requestHeaders: header)
       .then((HttpRequest req) {
 
