@@ -1,0 +1,16 @@
+<polymer-element name="mail-view">
+  <template>
+    <div>
+      <paper-autogrow-textarea>
+        <textarea rows="25" cols="100" required target placeholder="JASÓN de Usuarios" value="{{users}}"></textarea>
+      </paper-autogrow-textarea>
+      <br>
+      <paper-button raised id="inviteAll" on-click="{{invite}}">Invitar Usuarios</paper-button>
+    </div>
+    <br>
+    <div>
+      <paper-button raised id="welcomeAll" on-click="{{welcome}}">Mail Bienvenida</paper-button>
+    </div>
+  </template>
+  
+</polymer-element>

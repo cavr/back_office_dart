@@ -1,0 +1,13 @@
+<polymer-element name="excels-view">
+  <template>
+    <div>
+      <paper-input-decorator type="text" id="paper-name" on-change="change" value="{{programId}}"></paper-input-decorator>
+      <paper-button raised id="getReporting" on-click="{{loadReporting}}">Generar Reporting</paper-button>
+    </div>
+    <br>
+    <div>
+      <paper-button raised id="getDataMining" on-click="{{loadDataMining}}">Generar Data Mining</paper-button>
+    </div>
+  </template>
+  
+</polymer-element>
