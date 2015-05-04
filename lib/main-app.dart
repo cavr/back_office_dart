@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-@HtmlImport('src/example-app.html')
+@HtmlImport('src/main-app.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'dart:html';
@@ -21,8 +21,8 @@ class Page {
 
 /// Element representing the entire example app. There should only be one of
 /// these in existence.
-@CustomTag('example-app')
-class ExampleApp extends PolymerElement {
+@CustomTag('main-app')
+class MainApp extends PolymerElement {
   
   /// The current selected [Page].
   @observable Page selectedPage;
@@ -39,7 +39,7 @@ class ExampleApp extends PolymerElement {
 
   /// The [Router] which is going to control the app.
   final Router router = new Router(useFragment: true);
-  ExampleApp.created() : super.created();
+  MainApp.created() : super.created();
   
 //  void main() {
 //    PaperButton inButton = querySelector('#inButton');

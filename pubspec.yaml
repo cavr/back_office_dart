@@ -1,4 +1,4 @@
-name: polymer_spa_example
+name: back_office
 version: 0.0.1
 description: A simple example of a full polymer app with multiple pages.
 environment:

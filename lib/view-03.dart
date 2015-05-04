@@ -27,15 +27,9 @@ class View03 extends PolymerElement{
       print(error);
     });
     
-    loadMailTemplate(e);
-  }
-
-  void loadMailTemplate(Event e) {
-    var basic = "Basic " + globals.token;
-    Map header = {'Authorization': basic};
     print("Cargando Correos");
     HttpRequest
-        .request(globals.mailUrl + querySelector("#programLoad").value,
+        .request(globals.mailUrl + programName,
             requestHeaders: header)
         .then((HttpRequest req) {
 
