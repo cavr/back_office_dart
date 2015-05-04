@@ -1,4 +1,4 @@
-@HtmlImport('src/view-02.html')
+@HtmlImport('src/user-view.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'package:polymer/polymer.dart';
@@ -9,9 +9,9 @@ import 'user-session.dart' as globals;
 
 var usersUrl = "http://localhost:8080/admin/user";
 
-@CustomTag('view-02')
-class View02 extends PolymerElement{
-  View02.created() : super.created();
+@CustomTag('user-view')
+class UserView extends PolymerElement{
+  UserView.created() : super.created();
  
   void getUsers(Event e) {
     var basic = "Basic " + globals.token;

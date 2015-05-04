@@ -28,13 +28,13 @@
         <core-animated-pages id="pages" selected="{{route}}" valueattr="hash" transitions="slide-from-right">
           <template repeat="{{page in pages}}">
             <section hash="inicio" layout vertical center-center>
-             <view-01></view-01>
+             <auth-view></auth-view>
             </section>
             <section hash="usuarios" layout vertical center-center>
-              <view-02></view-02>
+              <user-view></user-view>
             </section>
             <section hash="prototipos" layout vertical center-center>
-              <view-03></view-03>
+              <prototype-view></prototype-view>
             </section>
           </template>
         </core-animated-pages>

@@ -1,13 +1,13 @@
-@HtmlImport('src/view-03.html')
+@HtmlImport('src/prototype-view.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'package:polymer/polymer.dart';
 import 'user-session.dart' as globals;
 import 'dart:html';
 
-@CustomTag('view-03')
-class View03 extends PolymerElement{
-  View03.created() : super.created();
+@CustomTag('prototype-view')
+class PrototypeView extends PolymerElement{
+  PrototypeView.created() : super.created();
   
   @observable String programName;
   

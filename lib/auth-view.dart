@@ -1,4 +1,4 @@
-@HtmlImport('src/view-01.html')
+@HtmlImport('src/auth-view.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'dart:html';
@@ -15,9 +15,9 @@ String password;
 var stepIndex = 1;
 
 
-@CustomTag('view-01')
-class View01 extends PolymerElement{
-  View01.created() : super.created();
+@CustomTag('auth-view')
+class AuthView extends PolymerElement{
+  AuthView.created() : super.created();
   
   @observable String userValue = "";
   @observable String pwdValue = "";
