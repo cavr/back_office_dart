@@ -44,10 +44,10 @@ core-menu > paper-item.core-selected {
   background: #C8E6C9;
 }
 
-view-01{
+auth-view{
   font-size: 2.1rem;
 }
-view-01 /deep/ #inButton{
+auth-view /deep/ #inButton{
   margin: 15% auto;
   width: 100%;
 }
