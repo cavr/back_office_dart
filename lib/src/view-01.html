@@ -1,0 +1,26 @@
+<polymer-element name="view-01">
+  <template>
+    <div id="home">
+    
+      <div id="home_login">
+        <div>Nombre de usuario</div>
+        
+            <paper-input type="text" id="paper-name" on-change="change" value="{{userValue}}" placeholder="Type your name..." inputValue="{{value}}"></paper-input>
+
+        <div>Contraseña</div> 
+        
+            <paper-input-decorator >
+              <input type="password" id="paper-pass" on-change="change" value="{{pwdValue}}" placeholder="Type your password..."></input>
+            </paper-input-decorator>
+            
+            <paper-button raised id="inButton" on-click="{{login}}">Entrar</paper-button>
+      </div>
+      
+      <div id="home_welcome" style="display: none">
+        <h1>Bienvenido al backoffice de Yump</h1>
+        <h3>Aquí podrás gestionar tus programas</h3>
+      </div> 
+    </div>
+  </template>
+ 
+</polymer-element>

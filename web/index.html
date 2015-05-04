@@ -1,0 +1,39 @@
+<!--
+Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <link import="rel" src="../lib/src/view-01.html">
+  <link import="rel" src="../lib/src/view-02.html">
+  <link import="rel" src="../lib/src/view-03.html">
+  <title>Yump Backoffice</title>
+</head>
+<body unresolved fullbleed>
+
+<example-app>
+</example-app>
+
+
+<script type="application/dart">
+  // Note: This import is necessary even though its not being used directly. It
+  // contains @CustomTag, @HtmlImport, and other Initializer annotations which
+  // bootstrap the application. The dartdoc comment below gets rid of the unused
+  // import warning because it refers to the ExampleApp class in this import.
+  import 'package:polymer_spa_example/example-app.dart';
+  import 'package:polymer/polymer.dart';
+  import 'package:paper_elements/paper_input.dart';
+  import 'package:paper_elements/paper_input_decorator.dart';
+  import 'package:paper_elements/paper_button.dart';
+  import 'package:polymer_spa_example/view-01.dart';
+  import 'package:polymer_spa_example/view-02.dart';
+  import 'package:polymer_spa_example/view-03.dart';
+  /// Registers the custom-element [ExampleApp] and all its dependencies.
+  main() => initPolymer();
+</script>
+</body>
+</html>
