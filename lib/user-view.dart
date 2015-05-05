@@ -6,10 +6,6 @@ import 'dart:html';
 import 'dart:convert';
 import 'user-session.dart' as globals;
 
-var usersUrl = "http://localhost:8080/admin/user";
-var deleteUsersUrl = "http://localhost:8080/prototype/delete-user/";
-var loadUsersUrl = "http://localhost:8080/prototype/users/";
-
 @CustomTag('user-view')
 class UserView extends PolymerElement {
   UserView.created() : super.created();
@@ -20,7 +16,7 @@ class UserView extends PolymerElement {
     Map header = {'Authorization': basic};
 
     HttpRequest
-        .request(usersUrl, requestHeaders: header)
+        .request(globals.usersUrl, requestHeaders: header)
         .then((HttpRequest req) {
       drawUsers(req.response);
     });
@@ -31,7 +27,7 @@ class UserView extends PolymerElement {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     HttpRequest
-        .request(loadUsersUrl + programName, requestHeaders: header)
+        .request(globals.loadUsersUrl + programName, requestHeaders: header)
         .then((HttpRequest req) {
       print(req.response);
       //Map data = JSON.decode(req.response);
@@ -44,7 +40,7 @@ class UserView extends PolymerElement {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     HttpRequest
-        .request(deleteUsersUrl + programName, requestHeaders: header)
+        .request(globals.deleteUsersUrl + programName, requestHeaders: header)
         .then((HttpRequest req) {
 
       //Map data = JSON.decode(req.response);

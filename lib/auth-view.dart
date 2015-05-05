@@ -6,9 +6,6 @@ import 'dart:convert';
 import 'package:polymer/polymer.dart';
 import 'user-session.dart' as globals;
 
-
-var authUrl = "http://localhost:8080/auth";
-var usersUrl = "http://localhost:8080/admin/user";
 String user;
 String password;
 
@@ -36,7 +33,7 @@ class AuthView extends PolymerElement{
        'password': pwdValue
      };
 
-     HttpRequest.postFormData(authUrl, data).then((HttpRequest req) {
+     HttpRequest.postFormData(globals.authUrl, data).then((HttpRequest req) {
        print('Request complete ${req.response}');
   
        Map data = JSON.decode(req.response);

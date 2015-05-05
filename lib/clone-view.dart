@@ -12,14 +12,12 @@ class CompanyView extends PolymerElement {
   
   @observable String prototypeId = "";
   
-  var clonePrototypeUrl = "http://localhost:8080/admin/clone-prototype/";
-  
   void clonePrototypeIntoProgram(Event e) {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     print("Clonando Prototipo");
     HttpRequest
-        .request(clonePrototypeUrl + prototypeId, requestHeaders: header)
+        .request(globals.clonePrototypeUrl + prototypeId, requestHeaders: header)
         .then((HttpRequest req) {
       //Map data = JSON.decode(req.response);
       print(req.response);
