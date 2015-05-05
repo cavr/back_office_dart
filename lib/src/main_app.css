@@ -33,7 +33,6 @@ core-menu {
 core-menu > paper-item {
   transition: all 300ms ease-in-out;
 }
-
 paper-item a {
   text-decoration: none;
   color: currentcolor;
@@ -43,10 +42,14 @@ paper-item a {
 core-menu > paper-item.core-selected {
   background: #C8E6C9;
 }
-
 auth-view{
   font-size: 2.1rem;
 }
+
+auth-view /deep/ paper-button {
+  background-color: #C8E6C9;
+}
+
 auth-view /deep/ #inButton{
   margin: 15% auto;
   width: 100%;
@@ -60,16 +63,21 @@ user-view {
   font-size: 2.5 rem;
 }
 user-view /deep/ #getUsersBtn {
-  background-color:#80D8FF;
+  background-color:#B3E5FC;
 }
 user-view /deep/ #loadUsers {
-  background-color:#69F0AE;
+  background-color:#DCEDC8;
 }
 user-view /deep/ #deleteUsers {
-  background-color:#FF8A65;
+  background-color:#FFCCBC;
 }
 user-view /deep/ #inputProgram{
   margin: 0 25%;
+}
+excels-view /deep/ paper-button {
+  width: 100%;
+  height: auto;
+  float:left;
 }
 @media all and (max-width: 480px) {
   core-animated-pages {
