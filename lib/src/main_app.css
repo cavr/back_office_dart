@@ -11,12 +11,12 @@
 .logoImg{
   padding: 0 25%;
 }
-
 core-animated-pages {
   width: 85%;
   height: 85%;
   -webkit-user-select: none;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 core-animated-pages > * {
@@ -45,11 +45,15 @@ core-menu > paper-item.core-selected {
 auth-view{
   font-size: 2.1rem;
 }
-
-auth-view /deep/ paper-button {
+auth-view /deep/ #home_welcome {
+  color: #5D4037;
+}
+* /deep/ paper-button {
   background-color: #C8E6C9;
 }
-
+* /deep/ paper-input-decorator /deep/ .focused-underline{
+  background-color: #4CAF52;
+}
 auth-view /deep/ #inButton{
   margin: 15% auto;
   width: 100%;
