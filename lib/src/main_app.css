@@ -51,6 +51,26 @@ auth-view /deep/ #inButton{
   margin: 15% auto;
   width: 100%;
 }
+user-view /deep/ paper-button {
+  width: 30%;
+  height: auto;
+  float:left;
+}
+user-view {
+  font-size: 2.5 rem;
+}
+user-view /deep/ #getUsersBtn {
+  background-color:#80D8FF;
+}
+user-view /deep/ #loadUsers {
+  background-color:#69F0AE;
+}
+user-view /deep/ #deleteUsers {
+  background-color:#FF8A65;
+}
+user-view /deep/ #inputProgram{
+  margin: 0 25%;
+}
 @media all and (max-width: 480px) {
   core-animated-pages {
     width: 100%;
