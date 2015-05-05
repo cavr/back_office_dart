@@ -9,14 +9,17 @@ import 'user-session.dart' as globals;
 @CustomTag('clone-view')
 class CompanyView extends PolymerElement {
   CompanyView.created() : super.created();
-  @observable String programName = "";
+  
+  @observable String prototypeId = "";
+  
   var clonePrototypeUrl = "http://localhost:8080/admin/clone-prototype/";
+  
   void clonePrototypeIntoProgram(Event e) {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     print("Clonando Prototipo");
     HttpRequest
-        .request(clonePrototypeUrl + programName, requestHeaders: header)
+        .request(clonePrototypeUrl + prototypeId, requestHeaders: header)
         .then((HttpRequest req) {
       //Map data = JSON.decode(req.response);
       print(req.response);

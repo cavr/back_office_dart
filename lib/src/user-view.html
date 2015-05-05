@@ -1,8 +1,9 @@
 <polymer-element name="user-view">
   <template>
     <div id="inputProgram">
-    <h3>Nombre del Programa</h3>
-    <paper-input type="text" id="programLoad" on-change="readProgramName" value="{{programName}}" placeholder="Nombre del Programa" inputValue="{{value}}">Nombre del Programa</paper-input>    
+    <paper-input-decorator label="Nombre del Programa">
+      <input type="text" id="programLoad" on-change="readProgramName" value="{{programName}}"></input>
+    </paper-input-decorator>
     </div>
     <paper-button raised id="getUsersBtn" on-click="{{getUsers}}">Buscar Usuarios</paper-button>
     <paper-button raised id="loadUsers" on-click="{{uploadUsers}}">Cargar Usuarios</paper-button>

@@ -1,7 +1,9 @@
 <polymer-element name="clone-view">
    <template>
-    <div>Identificador del Prototipo</div>
-    <paper-input type="text" id="paper-name" on-change="change" value="{{programName}}"></paper-input>
+   
+   <paper-input-decorator label="Id de prototipo">
+      <input type="text" id="paper-name" on-change="change" value="{{prototypeId}}"></input>
+    </paper-input-decorator>
     <paper-button raised id="cloneButton" on-click="{{clonePrototypeIntoProgram}}" >Clonar Prototipo</paper-button>
   </template>      
 </polymer-element>
