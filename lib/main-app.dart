@@ -34,6 +34,8 @@ class MainApp extends PolymerElement {
     const Page('Prototipos', 'prototipos'),
     const Page('Cargar Excels', 'excels'),
     const Page('Gestión de Mails', 'mail'),
+    const Page('Clonado de Prototipo', 'Clonar'),
+    const Page('Valores de Empresa', 'company')
   ];
 
   /// The path of the current [Page].

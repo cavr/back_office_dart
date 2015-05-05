@@ -22,22 +22,21 @@ class PrototypeView extends PolymerElement{
 
       //Map data = JSON.decode(req.response);
 
+      print("Cargando Correos");
+         HttpRequest
+             .request(globals.mailUrl + programName,
+                 requestHeaders: header)
+             .then((HttpRequest req) {
+
+           //Map data = JSON.decode(req.response);
+
+           print(req.response);
+         }).catchError((error) {
+           print(error);
+         });
       print(req.response);
     }).catchError((error) {
       print(error);
-    });
-    
-    print("Cargando Correos");
-    HttpRequest
-        .request(globals.mailUrl + programName,
-            requestHeaders: header)
-        .then((HttpRequest req) {
-
-      //Map data = JSON.decode(req.response);
-
-      print(req.response);
-    }).catchError((error) {
-      print(error);
-    });
+    });      
   }
 }
