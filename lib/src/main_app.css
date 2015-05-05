@@ -42,6 +42,10 @@ paper-item a {
 core-menu > paper-item.core-selected {
   background: #C8E6C9;
 }
+#user_status{
+  color: red;
+  background-color: white;
+}
 auth-view{
   font-size: 2.1rem;
 }
