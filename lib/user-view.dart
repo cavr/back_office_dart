@@ -51,7 +51,8 @@ class UserView extends PolymerElement {
   }
   void drawUsers(response) {
     Map parsedMap = JSON.decode(response);
-    print("Listando" + parsedMap["data"].length.toString() + "usuarios");
+    shadowRoot.querySelector('#users').text = response;
+    print("Listando " + parsedMap["data"].length.toString() + " usuarios");
     parsedMap["data"].forEach((key) => print(key));
   }
 }

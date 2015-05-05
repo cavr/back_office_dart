@@ -3,16 +3,15 @@
     <div id="home">
     
       <div id="home_login">
-        <div>Nombre de usuario</div>
+      
+        <paper-input-decorator label="Nombre de usuario">
+          <input type="text" id="paper-name" on-change="change" value="{{userValue}}" inputValue="{{value}}"></input>
+        </paper-input-decorator>
         
-            <paper-input type="text" id="paper-name" on-change="change" value="{{userValue}}" placeholder="Type your name..." inputValue="{{value}}"></paper-input>
-
-        <div>Contraseña</div> 
+        <paper-input-decorator label="Contraseña">
+          <input type="password" id="paper-pass" on-change="change" value="{{pwdValue}}"></input>
+        </paper-input-decorator>
         
-            <paper-input-decorator >
-              <input type="password" id="paper-pass" on-change="change" value="{{pwdValue}}" placeholder="Type your password..."></input>
-            </paper-input-decorator>
-            
             <paper-button raised id="inButton" on-click="{{login}}">Entrar</paper-button>
       </div>
       

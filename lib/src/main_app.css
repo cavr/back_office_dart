@@ -12,16 +12,15 @@
   padding: 0 25%;
 }
 core-animated-pages {
-  width: 85%;
-  height: 85%;
+  width: 95%;
+  height: 95%;
   -webkit-user-select: none;
   overflow: hidden;
-  overflow-y: scroll;
 }
 
 core-animated-pages > * {
   border-radius: 5px;
-  font-size: 50px;
+  font-size: 25px;
   background-color: white;
 }
 
@@ -80,7 +79,7 @@ user-view /deep/ #deleteUsers {
   background-color:#FFCCBC;
 }
 user-view /deep/ #inputProgram{
-  margin: 0 25%;
+  margin: 3% 25%;
 }
 excels-view /deep/ paper-button {
   width: 100%;
