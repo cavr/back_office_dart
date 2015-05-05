@@ -48,6 +48,7 @@ class AuthView extends PolymerElement{
        globals.token = window.btoa("${data["apiId"]}:${data["apiSecret"]}");
       
        print(globals.token);
+       setUserSession();
 
    });
   }
@@ -56,8 +57,8 @@ class AuthView extends PolymerElement{
       globals.isLogggedIn = true;
 //      this.$.home_login.style.display = 'none';
 //      this.$.home_welcome.style.display = '';
-      querySelector('>>> home_login').style.display = 'none';
-      querySelector('>>> home_welcome').style.display = '';
+      shadowRoot.querySelector('#home_login').style.display = 'none';
+      shadowRoot.querySelector('#home_welcome').style.display = '';
   }
 }
 
