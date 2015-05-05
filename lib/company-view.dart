@@ -1,4 +1,4 @@
-@HtmlImport('src/clone-view.html')
+@HtmlImport('src/company-view.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'package:polymer/polymer.dart';

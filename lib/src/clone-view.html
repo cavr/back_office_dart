@@ -1,5 +1,7 @@
 <polymer-element name="clone-view">
-  <template>       
-  </template>
-  
+   <template>
+    <div>Nombre del Programa</div>
+    <paper-input type="text" id="paper-name" on-change="change" value="{{programName}}"></paper-input>
+    <paper-button raised id="cloneButton" on-click="{{clonePrototypeIntoProgram}}" >Clonar Prototipo</paper-button>
+  </template>      
 </polymer-element>
