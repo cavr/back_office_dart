@@ -1,5 +1,4 @@
 @HtmlImport('src/auth-view.html')
-@HtmlImport('src/main-app.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'dart:html';
