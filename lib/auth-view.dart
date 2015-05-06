@@ -1,10 +1,12 @@
 @HtmlImport('src/auth-view.html')
+@HtmlImport('src/main-app.html')
 library polymer_core_and_paper_examples.spa.app;
 
 import 'dart:html';
 import 'dart:convert';
 import 'package:polymer/polymer.dart';
 import 'user-session.dart' as globals;
+import 'main-app.dart' as main;
 
 String user;
 String password;
@@ -52,10 +54,9 @@ class AuthView extends PolymerElement{
   
   void setUserSession(){
       globals.isLogggedIn = true;
-//      this.$.home_login.style.display = 'none';
-//      this.$.home_welcome.style.display = '';
       shadowRoot.querySelector('#home_login').style.display = 'none';
       shadowRoot.querySelector('#home_welcome').style.display = '';
+      main.userIcon.style.backgroundColor = '#64DD17';
   }
 }
 

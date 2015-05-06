@@ -10,6 +10,8 @@ import 'package:polymer/polymer.dart';
 import 'package:route_hierarchical/client.dart';
 import 'src/elements.dart';
 
+var userIcon = null;
+
 /// Simple class which maps page names to paths.
 class Page {
   final String name;
@@ -65,7 +67,7 @@ class MainApp extends PolymerElement {
           enter: enterRoute);
     }
     router.listen();
-
+    userIcon = shadowRoot.querySelector('#user_status');
   }
 
   /// Updates [selectedPage] and the current route whenever the route changes.

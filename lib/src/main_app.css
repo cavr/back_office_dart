@@ -16,6 +16,8 @@ core-animated-pages {
   height: 95%;
   -webkit-user-select: none;
   overflow: hidden;
+  overflow-y: scroll;
+  background-color: white;
 }
 
 core-animated-pages > * {
@@ -42,8 +44,7 @@ core-menu > paper-item.core-selected {
   background: #C8E6C9;
 }
 #user_status{
-  color: red;
-  background-color: white;
+  background-color: #E57373;
 }
 auth-view{
   font-size: 2.1rem;
