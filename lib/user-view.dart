@@ -33,7 +33,7 @@ class UserView extends PolymerElement {
       //Map data = JSON.decode(req.response);
 
     }).catchError((error) {
-      print(error);
+      shadowRoot.querySelector('#users').text = error;
     });
   }
   void deleteUsersFromCsv(Event e) {
@@ -46,12 +46,16 @@ class UserView extends PolymerElement {
       //Map data = JSON.decode(req.response);
       print(req.response);
     }).catchError((error) {
-      print(error);
+      shadowRoot.querySelector('#users').text = error;
     });
   }
   void drawUsers(response) {
     Map parsedMap = JSON.decode(response);
-    shadowRoot.querySelector('#users').text = JSON.encode(parsedMap["data"]);
+    String result = "";
+    parsedMap["data"].forEach((value){
+      result += value["email"]+" "+"\n";
+    });
+    shadowRoot.querySelector('#users').text = result;
     print("Listando " + parsedMap["data"].length.toString() + " usuarios");
     parsedMap["data"].forEach((key) => print(key));
   }
