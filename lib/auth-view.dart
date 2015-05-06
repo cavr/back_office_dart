@@ -5,7 +5,7 @@ import 'dart:html';
 import 'dart:convert';
 import 'package:polymer/polymer.dart';
 import 'user-session.dart' as globals;
-
+import 'main-app.dart' as main;
 
 var authUrl = "http://localhost:8080/auth";
 var usersUrl = "http://localhost:8080/admin/user";
@@ -66,6 +66,7 @@ class AuthView extends PolymerElement{
 //      this.$.home_welcome.style.display = '';
       shadowRoot.querySelector('#home_login').style.display = 'none';
       shadowRoot.querySelector('#home_welcome').style.display = '';
+      main.userIcon.style.backgroundColor = '#76FF03';
   }
 }
 
