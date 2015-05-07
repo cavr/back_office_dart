@@ -10,7 +10,6 @@ import 'user-session.dart' as globals;
 class CompanyView extends PolymerElement {
   CompanyView.created() : super.created();
   
-  @observable String programId;
     
     void loadCompany(Event e) {
       var basic = "Basic " + globals.token;

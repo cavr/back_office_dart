@@ -9,14 +9,13 @@ import 'dart:html';
 class PrototypeView extends PolymerElement{
   PrototypeView.created() : super.created();
   
-  @observable String programName;
   
   void loadMissionAndMail(Event e) {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     print("Cargando misiones");
     HttpRequest
-        .request(globals.missionUrl + programName,
+        .request(globals.missionUrl ,
             requestHeaders: header)
         .then((HttpRequest req) {
 
@@ -24,7 +23,7 @@ class PrototypeView extends PolymerElement{
 
       print("Cargando Correos");
          HttpRequest
-             .request(globals.mailUrl + programName,
+             .request(globals.mailUrl,
                  requestHeaders: header)
              .then((HttpRequest req) {
 

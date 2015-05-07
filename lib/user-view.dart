@@ -10,7 +10,7 @@ import 'user-session.dart' as globals;
 class UserView extends PolymerElement {
   UserView.created() : super.created();
 
-  @observable String programName = "";
+
   void getUsers(Event e) {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
@@ -27,7 +27,7 @@ class UserView extends PolymerElement {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     HttpRequest
-        .request(globals.loadUsersUrl + programName, requestHeaders: header)
+        .request(globals.loadUsersUrl, requestHeaders: header)
         .then((HttpRequest req) {
       print(req.response);
       //Map data = JSON.decode(req.response);
@@ -40,7 +40,7 @@ class UserView extends PolymerElement {
     var basic = "Basic " + globals.token;
     Map header = {'Authorization': basic};
     HttpRequest
-        .request(globals.deleteUsersUrl + programName, requestHeaders: header)
+        .request(globals.deleteUsersUrl , requestHeaders: header)
         .then((HttpRequest req) {
 
       //Map data = JSON.decode(req.response);

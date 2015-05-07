@@ -14,59 +14,63 @@ String password;
 
 var stepIndex = 1;
 
-
 @CustomTag('auth-view')
-class AuthView extends PolymerElement{
-  AuthView.created() : super.created(){
+class AuthView extends PolymerElement {
+  AuthView.created() : super.created() {
     String token = window.sessionStorage["token"];
-    if(token != null){
+    if (token != null) {
       globals.token = token;
       setUserSession();
     }
   }
-  
+
   @observable String userValue = "";
   @observable String pwdValue = "";
 
-  
-  
   void change(Event event, var detail, TextAreaElement textElement) {
     user = userValue;
     password = pwdValue;
   }
-  
+
   void login(Event e) {
-      print("Login event");
-    
-     var data = {
-       'email': userValue,
-       'password': pwdValue
-     };
+    print("Login event");
 
-     HttpRequest.postFormData(authUrl, data).then((HttpRequest req) {
-       print('Request complete ${req.response}');
-  
-       Map data = JSON.decode(req.response);
-  
-       print('apiId: ${data["apiId"]}');
-       print('apiSecret ${data["apiSecret"]}');
-  
-  
-       globals.token = window.btoa("${data["apiId"]}:${data["apiSecret"]}");
-       window.sessionStorage["token"] =  globals.token;
-       print(globals.token);
-       setUserSession();
+    var data = {'email': userValue, 'password': pwdValue};
 
-   });
+    HttpRequest.postFormData(authUrl, data).then((HttpRequest req) {
+      print('Request complete ${req.response}');
+
+      Map data = JSON.decode(req.response);
+
+      print('apiId: ${data["apiId"]}');
+      print('apiSecret ${data["apiSecret"]}');
+
+      globals.token = window.btoa("${data["apiId"]}:${data["apiSecret"]}");
+      window.sessionStorage["token"] = globals.token;
+      print(globals.token);
+      setUserSession();
+    });
   }
-  
-  void setUserSession(){
-      globals.isLogggedIn = true;
+
+  void setUserSession() {
+    globals.isLogggedIn = true;
 //      this.$.home_login.style.display = 'none';
 //      this.$.home_welcome.style.display = '';
-      shadowRoot.querySelector('#home_login').style.display = 'none';
-      shadowRoot.querySelector('#home_welcome').style.display = '';
-      main.userIcon.style.backgroundColor = '#76FF03';
+    shadowRoot.querySelector('#home_login').style.display = 'none';
+    shadowRoot.querySelector('#home_welcome').style.display = '';
+    
+  }
+
+  void logOut() {
+    globals.isLogggedIn = false;
+//      this.$.home_login.style.display = 'none';
+//      this.$.home_welcome.style.display = '';
+    shadowRoot.querySelector('#home_login').style.display = '';
+    shadowRoot.querySelector('#home_welcome').style.display = 'none';
+    main.userIcon.style.backgroundColor = '#76FF03';
+    window.sessionStorage["token"] = null;
+    globals.token = "";
+    
+    
   }
 }
-
