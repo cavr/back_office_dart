@@ -71,7 +71,7 @@ auth-view /deep/ #inButton{
 user-view {
   width: 90%;
 }
-user-view /deep/ #users{
+user-view /deep/ #response{
   margin: 0% 10% 5% 10%;
 }
 user-view /deep/ paper-button {
