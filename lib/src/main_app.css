@@ -68,22 +68,32 @@ auth-view /deep/ #inButton{
   margin: 15% auto;
   width: 100%;
 }
+user-view {
+  width: 90%;
+}
+user-view /deep/ #users{
+  margin: 0% 10% 5% 10%;
+}
 user-view /deep/ paper-button {
-  width: 30%;
+  width: 20%;
   height: auto;
   float:left;
 }
 user-view {
   font-size: 2.5 rem;
+  padding: 5% 10% 5% 10%;
 }
 user-view /deep/ #getUsersBtn {
   background-color:#B3E5FC;
+  margin: 2% 0% 0% 10%;
 }
 user-view /deep/ #loadUsers {
   background-color:#DCEDC8;
+  margin: 2% 0% 0% 10%;
 }
 user-view /deep/ #deleteUsers {
   background-color:#FFCCBC;
+  margin: 2% 0% 0% 10%;
 }
 user-view /deep/ #inputProgram{
   margin: 3% 25%;
