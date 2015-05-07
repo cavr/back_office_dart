@@ -12,6 +12,7 @@ import 'user-session.dart' as globals;
 import 'src/elements.dart';
 
 var userIcon = null;
+var menuList = null;
 
 /// Simple class which maps page names to paths.
 class Page {
@@ -48,6 +49,7 @@ class MainApp extends PolymerElement {
   final Router router = new Router(useFragment: true);
   MainApp.created() : super.created(){
     userIcon = shadowRoot.querySelector('#user_status');
+    menuList = shadowRoot.querySelector('#menu');
   }
   
 //  void main() {
