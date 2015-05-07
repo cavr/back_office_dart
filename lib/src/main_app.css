@@ -46,6 +46,11 @@ core-menu > paper-item.core-selected {
 #user_status{
   background-color: #E57373;
 }
+
+auth-view /deep/ #logOut{
+  height: 90%;
+  background-color: #E57373;
+}
 auth-view{
   font-size: 2.1rem;
 }

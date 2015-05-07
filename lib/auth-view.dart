@@ -60,6 +60,7 @@ class AuthView extends PolymerElement {
     shadowRoot.querySelector('#home_welcome').style.display = '';
     main.userIcon.style.backgroundColor = '#64DD17';
   }
+  
 
   void logOut() {
     globals.isLogggedIn = false;
@@ -70,4 +71,5 @@ class AuthView extends PolymerElement {
     window.sessionStorage.remove("token");
     main.userIcon.style.backgroundColor = '#E57373';
   }
+
 }

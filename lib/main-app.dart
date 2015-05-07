@@ -8,6 +8,7 @@ library polymer_core_and_paper_examples.spa.app;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:route_hierarchical/client.dart';
+import 'user-session.dart' as globals;
 import 'src/elements.dart';
 
 var userIcon = null;
@@ -69,7 +70,7 @@ class MainApp extends PolymerElement {
           enter: enterRoute);
     }
     router.listen();
-    userIcon = shadowRoot.querySelector('#user_status');
+    //userIcon = shadowRoot.querySelector('#user_status');
   }
 
   /// Updates [selectedPage] and the current route whenever the route changes.
@@ -92,8 +93,5 @@ class MainApp extends PolymerElement {
   void menuItemClicked(_) {
     scaffold.closeDrawer();
   }
-  
-  void setIconColor(String color){
-    userIcon.style.backgroundColor = color;
-  }
+ 
 }
