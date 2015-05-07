@@ -10,7 +10,6 @@ import 'user-session.dart' as globals;
 class UserView extends PolymerElement {
   UserView.created() : super.created();
 
-
   void getUsers(Event e) {
     var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
@@ -18,10 +17,9 @@ class UserView extends PolymerElement {
     HttpRequest
         .request(globals.usersUrl, requestHeaders: header)
         .then((HttpRequest req) {
-      drawUsers(req.response);
+      printMessage(req.response);
     });
   }
-
 
   void uploadUsers(Event e) {
     var basic = "Basic " + window.sessionStorage["token"];
@@ -31,32 +29,39 @@ class UserView extends PolymerElement {
         .then((HttpRequest req) {
       print(req.response);
       //Map data = JSON.decode(req.response);
-
+      printMessage(req.response);
     }).catchError((error) {
-      shadowRoot.querySelector('#users').text = error;
+      printMessage(error);
     });
   }
   void deleteUsersFromCsv(Event e) {
     var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     HttpRequest
-        .request(globals.deleteUsersUrl , requestHeaders: header)
+        .request(globals.deleteUsersUrl, requestHeaders: header)
         .then((HttpRequest req) {
 
       //Map data = JSON.decode(req.response);
       print(req.response);
+      printMessage(req.response);
     }).catchError((error) {
-      shadowRoot.querySelector('#users').text = error;
+      printMessage(error);
     });
   }
   void drawUsers(response) {
     Map parsedMap = JSON.decode(response);
     String result = "";
-    parsedMap["data"].forEach((value){
-      result += value["email"]+" "+"\n";
+    parsedMap["data"].forEach((value) {
+      result += value["email"] + " " + "\n";
     });
     shadowRoot.querySelector('#users').text = result;
     print("Listando " + parsedMap["data"].length.toString() + " usuarios");
     parsedMap["data"].forEach((key) => print(key));
+  }
+
+  void printMessage(String response) {
+   shadowRoot
+        .querySelector('#users')
+        .innerHtml = ("<br><br><br>><pre>" + response + "</pre>");
   }
 }
