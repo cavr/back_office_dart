@@ -45,7 +45,9 @@ class MainApp extends PolymerElement {
 
   /// The [Router] which is going to control the app.
   final Router router = new Router(useFragment: true);
-  MainApp.created() : super.created();
+  MainApp.created() : super.created(){
+    userIcon = shadowRoot.querySelector('#user_status');
+  }
   
 //  void main() {
 //    PaperButton inButton = querySelector('#inButton');
