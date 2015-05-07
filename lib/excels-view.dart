@@ -13,7 +13,7 @@ class ExcelsView extends PolymerElement{
   @observable String programId;
   
   void loadDataMining(Event e) {
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     print("Cargando Data Mining");
     HttpRequest
@@ -31,7 +31,7 @@ class ExcelsView extends PolymerElement{
   }
   
   void loadReporting(Event e) {
-      var basic = "Basic " + globals.token;
+      var basic = "Basic " + window.sessionStorage["token"];
       Map header = {'Authorization': basic};
       print("Cargando Reporting");
       HttpRequest

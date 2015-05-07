@@ -14,7 +14,7 @@ class MailView extends PolymerElement{
   
   void invite(Event e) {
     print(users);
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     print("Invitando Usuarios");
     HttpRequest
@@ -32,7 +32,7 @@ class MailView extends PolymerElement{
   }
   
   void welcome(Event e) {
-      var basic = "Basic " + globals.token;
+      var basic = "Basic " + window.sessionStorage["token"];
       Map header = {'Authorization': basic};
       print("Welcome Mail");
       HttpRequest

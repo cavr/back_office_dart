@@ -11,7 +11,7 @@ class PrototypeView extends PolymerElement{
   
   
   void loadMissionAndMail(Event e) {
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     print("Cargando misiones");
     HttpRequest

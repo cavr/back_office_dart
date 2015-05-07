@@ -12,7 +12,7 @@ class UserView extends PolymerElement {
 
 
   void getUsers(Event e) {
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
 
     HttpRequest
@@ -24,7 +24,7 @@ class UserView extends PolymerElement {
 
 
   void uploadUsers(Event e) {
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     HttpRequest
         .request(globals.loadUsersUrl, requestHeaders: header)
@@ -37,7 +37,7 @@ class UserView extends PolymerElement {
     });
   }
   void deleteUsersFromCsv(Event e) {
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     HttpRequest
         .request(globals.deleteUsersUrl , requestHeaders: header)

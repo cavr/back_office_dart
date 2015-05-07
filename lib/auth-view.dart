@@ -19,7 +19,6 @@ class AuthView extends PolymerElement {
   AuthView.created() : super.created() {
     String token = window.sessionStorage["token"];
     if (token != null) {
-      globals.token = token;
       setUserSession();
     }
   }
@@ -45,9 +44,9 @@ class AuthView extends PolymerElement {
       print('apiId: ${data["apiId"]}');
       print('apiSecret ${data["apiSecret"]}');
 
-      globals.token = window.btoa("${data["apiId"]}:${data["apiSecret"]}");
-      window.sessionStorage["token"] = globals.token;
-      print(globals.token);
+      String token = window.btoa("${data["apiId"]}:${data["apiSecret"]}");
+      window.sessionStorage["token"] = token;
+      print(token);
       setUserSession();
     });
   }
@@ -58,7 +57,7 @@ class AuthView extends PolymerElement {
 //      this.$.home_welcome.style.display = '';
     shadowRoot.querySelector('#home_login').style.display = 'none';
     shadowRoot.querySelector('#home_welcome').style.display = '';
-    
+    main.setIconColor('#64DD17');
   }
 
   void logOut() {
@@ -67,10 +66,8 @@ class AuthView extends PolymerElement {
 //      this.$.home_welcome.style.display = '';
     shadowRoot.querySelector('#home_login').style.display = '';
     shadowRoot.querySelector('#home_welcome').style.display = 'none';
-    main.userIcon.style.backgroundColor = '#76FF03';
-    window.sessionStorage["token"] = null;
-    globals.token = "";
-    
+    window.sessionStorage.remove("token");
+    main.setIconColor('#E57373');
     
   }
 }

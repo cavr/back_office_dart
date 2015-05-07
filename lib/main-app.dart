@@ -90,4 +90,8 @@ class MainApp extends PolymerElement {
   void menuItemClicked(_) {
     scaffold.closeDrawer();
   }
+  
+  void setIconColor(String color){
+    userIcon.style.backgroundColor = color;
+  }
 }

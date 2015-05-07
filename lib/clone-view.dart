@@ -13,7 +13,7 @@ class CompanyView extends PolymerElement {
   @observable String prototypeId = "";
   
   void clonePrototypeIntoProgram(Event e) {
-    var basic = "Basic " + globals.token;
+    var basic = "Basic " + window.sessionStorage["token"];
     Map header = {'Authorization': basic};
     print("Clonando Prototipo");
     HttpRequest

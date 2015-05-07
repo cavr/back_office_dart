@@ -2,7 +2,6 @@ library globals.UserSession;
 
 bool isLogggedIn = false;
 String username = "";
-var token = "";
 
 var back = "http://localhost:8080";
 

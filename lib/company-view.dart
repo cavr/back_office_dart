@@ -12,7 +12,7 @@ class CompanyView extends PolymerElement {
   
     
     void loadCompany(Event e) {
-      var basic = "Basic " + globals.token;
+      var basic = "Basic " + window.sessionStorage["token"];
       Map header = {'Authorization': basic};
       print("Cargando Valores de Empresa");
       HttpRequest
