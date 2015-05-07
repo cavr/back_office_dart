@@ -26,12 +26,11 @@ class UserView extends PolymerElement {
     Map header = {'Authorization': basic};
     HttpRequest
         .request(globals.loadUsersUrl, requestHeaders: header)
-        .then((HttpRequest req) {
-      print(req.response);
+        .then((HttpRequest req) {     
       //Map data = JSON.decode(req.response);
       printMessage(req.response);
-    }).catchError((error) {
-      printMessage(error);
+    }).catchError((onError) {
+      printMessage(onError.target.responseText);
     });
   }
   void deleteUsersFromCsv(Event e) {
@@ -44,8 +43,8 @@ class UserView extends PolymerElement {
       //Map data = JSON.decode(req.response);
       print(req.response);
       printMessage(req.response);
-    }).catchError((error) {
-      printMessage(error);
+    }).catchError((onError) {
+      printMessage(onError.target.responseText);
     });
   }
   void drawUsers(response) {
