@@ -34,8 +34,13 @@ class PrototypeView extends PolymerElement{
            print(error);
          });
       print(req.response);
-    }).catchError((error) {
-      print(error);
+    }).catchError((onError) {
+      printMessage(onError.target.responseText);
     });      
   }
+  void printMessage(String response) {
+      shadowRoot
+           .querySelector('#response')
+           .innerHtml = ("<br><br><br>><pre>" + response + "</pre>");
+     }
 }

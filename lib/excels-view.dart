@@ -24,8 +24,9 @@ class ExcelsView extends PolymerElement{
       //Map data = JSON.decode(req.response);
 
       print(req.response);
-    }).catchError((error) {
-      print(error);
+      printMessage(req.response);
+    }).catchError((onError) {
+      printMessage(onError.target.responseText);
     });
    
   }
@@ -42,8 +43,14 @@ class ExcelsView extends PolymerElement{
         //Map data = JSON.decode(req.response);
 
         print(req.response);
-      }).catchError((error) {
-        print(error);
+        printMessage(req.response);
+      }).catchError((onError) {
+        printMessage(onError.target.responseText);
       });
   }
+  void printMessage(String response) {
+      shadowRoot
+           .querySelector('#response')
+           .innerHtml = ("<br><br><br>><pre>" + response + "</pre>");
+     }
 }

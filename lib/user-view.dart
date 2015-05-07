@@ -60,7 +60,7 @@ class UserView extends PolymerElement {
 
   void printMessage(String response) {
    shadowRoot
-        .querySelector('#users')
+        .querySelector('#response')
         .innerHtml = ("<br><br><br>><pre>" + response + "</pre>");
   }
 }

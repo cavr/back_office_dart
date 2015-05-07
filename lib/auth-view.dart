@@ -49,6 +49,8 @@ class AuthView extends PolymerElement {
       window.sessionStorage["token"] = token;
       print(token);
       setUserSession();
+    }).catchError((onError) {
+      printMessage(onError.target.responseText);
     });
   }
 
@@ -58,6 +60,7 @@ class AuthView extends PolymerElement {
 //      this.$.home_welcome.style.display = '';
     shadowRoot.querySelector('#home_login').style.display = 'none';
     shadowRoot.querySelector('#home_welcome').style.display = '';
+    shadowRoot.querySelector('#response').style.display = 'none';
     main.userIcon.style.backgroundColor = '#64DD17';
     main.menuList.style.display = 'block';
   }
@@ -73,5 +76,10 @@ class AuthView extends PolymerElement {
     main.userIcon.style.backgroundColor = '#E57373';
     main.menuList.style.display = 'none';
   }
+  void printMessage(String response) {
+      shadowRoot
+           .querySelector('#response')
+           .innerHtml = ("<br><br><br>><pre>" + response + "</pre>");
+     }
 
 }
