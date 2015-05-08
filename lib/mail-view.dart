@@ -4,6 +4,7 @@ library polymer_core_and_paper_examples.spa.app;
 import 'package:polymer/polymer.dart';
 import 'user-session.dart' as globals;
 import 'dart:html';
+import 'dart:convert';
 
 @CustomTag('mail-view')
 class MailView extends PolymerElement{
@@ -15,38 +16,48 @@ class MailView extends PolymerElement{
   void invite(Event e) {
     print(users);
     var basic = "Basic " + window.sessionStorage["token"];
-    Map header = {'Authorization': basic};
+
     print("Invitando Usuarios");
-    HttpRequest
-        .request(globals.inviteUsersUrl,
-            requestHeaders: header)
-        .then((HttpRequest req) {
+    
+    List userList = users.trim().split("\n"); 
+    Map usersData = {'userList': userList};
+    
+    var request = new HttpRequest();
 
-      //Map data = JSON.decode(req.response);
+      request.onReadyStateChange.listen((Event e) {
+        printMessage(request.responseText);
+      });
 
-      print(req.response);
-    }).catchError((onError) {
-      printMessage(onError.target.responseText);
-    });
+      request.open('POST', globals.inviteUsersUrl);
+
+      request.setRequestHeader('Authorization', basic);
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.send(JSON.encode(usersData));
    
   }
   
   void welcome(Event e) {
       var basic = "Basic " + window.sessionStorage["token"];
-      Map header = {'Authorization': basic};
+      
       print("Welcome Mail");
-      HttpRequest
-          .request(globals.welcomeAllUrl,
-              requestHeaders: header)
-          .then((HttpRequest req) {
+      
+      List userList = users.trim().split("\n"); 
+          Map usersData = {'userList': userList};
+          
+          var request = new HttpRequest();
 
-        //Map data = JSON.decode(req.response);
+            request.onReadyStateChange.listen((Event e) {
+              printMessage(request.responseText);
+            });
 
-        print(req.response);
-      }).catchError((onError) {
-        printMessage(onError.target.responseText);
-      });
+            request.open('POST', globals.welcomeAllUrl);
+
+            request.setRequestHeader('Authorization', basic);
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.send(JSON.encode(usersData));
+            
   }
+  
   void printMessage(String response) {
       shadowRoot
            .querySelector('#response')
