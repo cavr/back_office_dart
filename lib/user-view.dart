@@ -17,7 +17,8 @@ class UserView extends PolymerElement {
     HttpRequest
         .request(globals.usersUrl, requestHeaders: header)
         .then((HttpRequest req) {
-      printMessage(req.response);
+      Map parsedMap = JSON.decode(req.response);
+      printList(parsedMap["data"]);
     });
   }
 
@@ -57,10 +58,43 @@ class UserView extends PolymerElement {
     print("Listando " + parsedMap["data"].length.toString() + " usuarios");
     parsedMap["data"].forEach((key) => print(key));
   }
+  
+  void printList(List users){
+    shadowRoot
+            .querySelector('#response')
+            .innerHtml = '';
+    
+    shadowRoot
+                .querySelector('#users')
+                .innerHtml = ("<div id=\"heading\">"+
+                              "<div id=\"id\">ID</div>"+
+                              "<div id=\"name\">Nombre</div>"+
+                              "<div id=\"lastname\">Apellido</div>"+
+                              "<div id=\"email\">Email</div>"+
+                              "<div id=\"programs\">Programas</div></div>");
+    for (var user in users) {
+      printUser(user);
+    }
+  }
 
   void printMessage(String response) {
+    shadowRoot
+            .querySelector('#users')
+            .innerHtml = '';
    shadowRoot
         .querySelector('#response')
-        .innerHtml = ("<br><br><br>><pre>" + response + "</pre>");
+        .innerHtml = ("<br><br><br><pre>" + response + "</pre>");
+  }
+  
+  void printUser(Map user) {
+   
+   shadowRoot
+        .querySelector('#users')
+        .appendHtml("<div id=\"row\">"+
+            "<div id=\"id\"><p>"+user["id"].toString()+"</p></div>"+
+            "<div id=\"name\"><p>"+user["name"]+"</p></div>"+
+            "<div id=\"lastname\"><p>"+user["lastName"]+"</p></div>"+
+            "<div id=\"email\"><p>"+user["email"]+"</p></div>"+
+            "<div id=\"programs\"><p>"+user["programs"].toString()+"</p></div></div>");
   }
 }

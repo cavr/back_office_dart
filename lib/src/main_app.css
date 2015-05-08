@@ -72,8 +72,65 @@ user-view {
   width: 90%;
 }
 user-view /deep/ #response{
-  margin: 0% 10% 5% 10%;
+  margin: 10% 10% 5% 10%;
 }
+
+user-view /deep/ #users{
+  display: table;
+  width: 100%;
+  
+}
+
+user-view /deep/ #heading{
+  display: table-row;
+  text-align: center;
+}
+
+user-view /deep/ #row{
+  display: table-row;
+  text-align: center;
+}
+
+user-view /deep/ #id{
+  display: table-cell;
+  border: solid;
+  border-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+user-view /deep/ #name{
+  display: table-cell;
+  border: solid;
+  border-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+user-view /deep/ #lastname{
+  display: table-cell;
+  border: solid;
+  border-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+user-view /deep/ #email{
+  display: table-cell;
+  border: solid;
+  border-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+user-view /deep/ #programs{
+  display: table-cell;
+  border: solid;
+  border-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 user-view /deep/ paper-button {
   width: 20%;
   height: auto;
