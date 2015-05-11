@@ -63,6 +63,19 @@ class AuthView extends PolymerElement {
     shadowRoot.querySelector('#response').style.display = 'none';
     main.userIcon.style.backgroundColor = '#64DD17';
     main.menuList.style.display = 'block';
+    HttpRequest
+            .request(globals.pingUrl)
+            .then((HttpRequest req) {
+
+      Map parsedMap = JSON.decode(req.response);
+            if(parsedMap["credentials"] == 1)
+              shadowRoot.querySelector('#serverStatus').innerHtml = "Estado del Servidor <img alt=\"OK\" src=\"packages/back_office/src/img/ok.png\">";
+            else 
+              shadowRoot.querySelector('#serverStatus').innerHtml = "Estado del Servidor <img alt=\"FAIL\" src=\"packages/back_office/src/img/fail.png\">";
+
+        }).catchError((onError) {
+          printMessage(onError.target.responseText);
+        });
   }
   
 

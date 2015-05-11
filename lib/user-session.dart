@@ -17,3 +17,4 @@ var welcomeAllUrl = back + "/admin/welcome-all";
 var companyUrl = back + "/prototype/company/";
 var reportingUrl = back + "/reporting/";
 var dataminingUrl = back + "/data-mining/";
+var pingUrl = back + "/ping";

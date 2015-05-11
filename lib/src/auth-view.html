@@ -17,8 +17,13 @@
       <div id="response"></div>
       
       <div id="home_welcome" style="display: none">
-        <h1>Bienvenido al backoffice de Yump</h1>
-        <h3>Aquí podrás gestionar tus programas</h3>
+        <div id="auth-head">
+          <h1>Bienvenido al backoffice de Yump</h1>
+          <h3>Aquí podrás gestionar tus programas</h3>
+        </div>
+        
+        <div id = "serverStatus"></div>
+        
         <paper-button raised id="logOut" on-click="{{logOut}}">Salir</paper-button>
       </div> 
     </div>

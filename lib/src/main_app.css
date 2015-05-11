@@ -49,14 +49,30 @@ core-menu > paper-item.core-selected {
 }
 
 auth-view /deep/ #logOut{
-  height: 90%;
+  margin-top: 50%;
   background-color: #E57373;
 }
 auth-view{
   font-size: 2.1rem;
 }
-auth-view /deep/ #home_welcome {
+auth-view /deep/ #home_welcome{
   color: #5D4037;
+  font-size: 1.5rem;
+  margin: 5% 5% 5% 5%;
+  width: 100%;
+  height: 100%;
+}
+auth-view /deep/ #auth-head{
+  display: block;
+  margin: 5% 0%;
+}
+auth-view /deep/ #serverStatus{
+  display: block;
+  width: 40%;
+  margin-top: 10%;
+}
+auth-view /deep/ #serverStatus img{
+  float: right;
 }
 * /deep/ paper-button {
   background-color: #C8E6C9;
