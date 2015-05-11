@@ -1,0 +1,59 @@
+<polymer-element name="main-app">
+  <template>
+    <link rel="stylesheet" href="main_app.css">
+    <core-scaffold id="scaffold">
+      <nav>
+        <core-toolbar>
+          <img class="logoImg" src="img/white_logo_yump.png">
+        </core-toolbar>
+        <core-menu id="menu" valueattr="hash" selected="{{route}}">
+          <template repeat="{{page in pages}}">
+            <paper-item hash="{{page.path}}"
+                        on-click="{{menuItemClicked}}" noink>
+              <core-icon icon="label{{route != page.path ? '-outline' : ''}}">
+              </core-icon>
+              <a _href="#{{page.path}}">{{page.name}}</a>
+            </paper-item>
+          </template>
+        </core-menu>
+        
+      </nav>
+
+      <core-toolbar tool flex>
+        <div flex>{{selectedPage.name}}</div>
+        <core-icon-button id="user_status" icon="perm-identity"></core-icon-button>
+        <core-icon-button icon="add"></core-icon-button>
+      </core-toolbar>
+
+      <div layout horizontal center-center fit>
+        <core-animated-pages id="pages" selected="{{route}}" valueattr="hash" transitions="slide-from-right">
+          <template repeat="{{page in pages}}">
+            <section hash="inicio" layout vertical center-center>
+             <auth-view></auth-view>
+            </section>
+            <section hash="usuarios" layout vertical center-center>
+              <user-view></user-view>
+            </section>
+            <section hash="prototipos" layout vertical center-center>
+              <prototype-view></prototype-view>
+            </section>
+            <section hash="excels" layout vertical center-center>
+              <excels-view></excels-view>
+            </section>
+            <section hash="mail" layout vertical center-center>
+              <mail-view></mail-view>
+            </section>
+            <section hash="Clonar" layout vertical center-center>
+              <clone-view></clone-view>
+            </section>
+            <section hash="company" layout vertical center-center>
+            <company-view></company-view>
+            </section>
+          </template>
+        </core-animated-pages>
+      </div>
+
+    </core-scaffold>
+  </template>
+
+</polymer-element>
